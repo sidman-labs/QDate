@@ -1,0 +1,55 @@
+1. Banner
+
+Next, place the ad unit inside your app
+Follow these instructions:
+Complete the instructions in the Google Mobile Ads SDK guide using this app ID:
+
+QDateca-app-pub-7363297117234770~1306337609
+
+Follow the banner implementation guide to integrate the SDK. You'll specify ad type, size and placement when you integrate the code using this ad unit ID:
+
+Global Bannerca-app-pub-7363297117234770/9660786993
+
+Review the AdMob policies to ensure that your implementation complies.
+
+
+2. Interstitial
+
+Next, place the ad unit inside your app
+Follow these instructions:
+Complete the instructions in the Google Mobile Ads SDK guide using this app ID:
+
+QDateca-app-pub-7363297117234770~1306337609
+
+Follow the interstitial implementation guide to integrate the SDK. You'll specify ad type and placement when you integrate the code using this ad unit ID:
+
+Profile Browseca-app-pub-7363297117234770/9923194227
+
+Review the AdMob policies to ensure that your implementation complies.
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Banner
+
+Home/Profile/Browse screen-এর নিচে
+সবসময় বা মাঝে মাঝে দেখানো যায়
+সবচেয়ে কম intrusive
+
+2. Interstitial
+যেমন:
+
+Profile browsing শেষ করে বের হলে
+কয়েকটি profile দেখার পর
+Search/filter action-এর পর
+
+⚠️ প্রতিটি click-এ Interstitial দেবেন না। এতে user experience খারাপ হবে এবং ad policy issue হওয়ার ঝুঁকি বাড়ে।

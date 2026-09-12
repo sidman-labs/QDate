@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- WebView first so everything else (progress bar, banner, splash) draws
+         on top of it. NOTE: intentionally NOT wrapped in a SwipeRefreshLayout —
+         the web app scrolls inside per-page containers (html/body are
+         overflow:hidden), so the WebView document itself never scrolls and a
+         pull-to-refresh wrapper would swallow every downward drag (the page
+         would scroll down but never back up). -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Thin progress bar overlaid on top, driven by WebChromeClient.onProgressChanged. -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_gravity="top"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/splash_background" />
+
+    <!-- AdMob banner, anchored above the web app's bottom nav. adSize is a
+         placeholder (replaced in code with an anchored adaptive size); the
+         unit ID comes from @string/banner_ad_unit_id, which is Google's test
+         ID in debug builds and the real unit in release. It must never also
+         be set from code — the SDK allows it to be set only once. -->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+    <!-- Full-screen custom splash. The system splash icon area is a small
+         square and cannot show the 9:16 splash art, so it lives here instead:
+         fitCenter keeps the ENTIRE 1080x1920 image visible, aspect-correct,
+         letter-boxed on the solid splash color (no stretch, no crop). Hidden
+         from MainActivity once the first real page has finished loading. -->
+    <FrameLayout
+        android:id="@+id/splashOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/splash_background"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_splash_image" />
+    </FrameLayout>
+
+</FrameLayout>

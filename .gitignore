@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Keystores and signing config — never commit these
+*.keystore
+*.jks
+signing.properties
+
+# OS
+.DS_Store
+Thumbs.db

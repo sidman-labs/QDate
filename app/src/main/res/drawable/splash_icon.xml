@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System splash icon (Android 12+): the icon area is a small SQUARE container,
+     so it must carry the square 512x512 app image — never the 9:16 splash art.
+     The inset keeps the whole image inside the visible circle-safe zone. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:inset="22%">
+    <bitmap android:src="@drawable/ic_launcher_image" />
+</inset>

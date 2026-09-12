@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ad unit IDs for RELEASE builds. The debug build overrides both with
+         Google's test units (see src/debug/res/values/admob.xml), so test
+         impressions never touch the real units. The banner references its ID
+         directly from activity_main.xml — a unit ID must never also be set
+         from code: the SDK allows it to be set only once. -->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7363297117234770/9660786993</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-7363297117234770/9923194227</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Google Play policy: the app is HTTPS-only. -->
+    <base-config cleartextTrafficPermitted="false" />
+    <!--
+    Dev-only exception (remove before release) — point the app at a local XAMPP over HTTP:
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+    -->
+</network-security-config>

@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+// FCM activates automatically once google-services.json is dropped into this
+// directory (Firebase Console → Project settings → Your apps → Android app
+// com.dreamsparkgroups.qdate). Until then the app builds and runs without push.
+def hasGoogleServices = file('google-services.json').exists()
+if (hasGoogleServices) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.dreamsparkgroups.qdate'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.dreamsparkgroups.qdate"
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+
+        // The URL the app loads. Change here, or via BuildConfig.APP_URL at runtime.
+        buildConfigField "String", "APP_URL", "\"https://test.dreamsparkgroups.com/qdate/\""
+        // A clean Chrome-like UA. Google blocks sign-in from embedded WebViews whose
+        // UA carries the "wv" token, so we override it (see MainActivity).
+        buildConfigField "String", "APP_USER_AGENT", "\"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36\""
+
+        // ---- Ads ----
+        // Ad unit IDs live in res/values/admob.xml (real units) and
+        // src/debug/res/values/admob.xml (Google test units). Debug builds
+        // automatically serve test ads; release builds serve the real ones.
+        // No manual flag to flip before release.
+    }
+
+    buildTypes {
+        release {
+            // Debug-signed so the first APK installs out of the box.
+            // Swap in your own release keystore before Play submission — see README.
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+
+    // AdMob
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
+
+    // FCM (google-services.json optional — see the conditional plugin above)
+    implementation 'com.google.firebase:firebase-messaging:24.1.0'
+}

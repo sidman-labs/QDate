@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "839402410733",
+    "project_id": "qdate-12da2",
+    "storage_bucket": "qdate-12da2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839402410733:android:77c8081c65184fc088b2e4",
+        "android_client_info": {
+          "package_name": "com.dreamsparkgroups.qdate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC09woA-J2FtqXzuXSEPqU_9YoGQlcLg0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

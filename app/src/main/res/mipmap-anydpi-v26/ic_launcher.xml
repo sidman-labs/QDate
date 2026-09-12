@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App icon: the full image in the foreground at a small 12% inset — bigger
+     than the fully-safe 20%, while still keeping most of the artwork inside
+     the launcher's mask. Android 8+ launchers FORCE a circle/squircle mask
+     over every icon; with 0% inset the mask visibly crops the image edges,
+     so a small inset is the closest to "as-is" that fits every launcher. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background" />
+    <foreground>
+        <inset android:inset="12%">
+            <bitmap android:src="@drawable/ic_launcher_image" />
+        </inset>
+    </foreground>
+</adaptive-icon>
